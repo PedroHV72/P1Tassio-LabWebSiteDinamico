@@ -18,3 +18,9 @@ VALUES (1, 1, 2);
 
 INSERT INTO produtoCategoria(id, produtoId, categoriaId)
 VALUES (2, 2, 1);
+
+INSERT INTO tabelaPromocao(id, nome, descricao, dataInicio, dataFim, dataCadastro, dataUltimaAtualizacao)
+values (1, 'Promoção Malto', 'Para dar energia no treino', '2021-09-25',  '2021-09-27', '2021-09-23', CURRENT_TIMESTAMP());
+
+INSERT INTO promocaoItem(id, valorPromocao, dataCadastro, dataUltimaAtualizacao, produtoId, promocaoId)
+values (1, 22.00, '2021-09-24', CURRENT_TIMESTAMP(), 1, 1);

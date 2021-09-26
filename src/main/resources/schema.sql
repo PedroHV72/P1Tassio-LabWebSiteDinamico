@@ -23,3 +23,25 @@ CREATE TABLE produtoCategoria (
       FOREIGN KEY (categoriaId) REFERENCES categoria(id),
       FOREIGN KEY (produtoId)   REFERENCES produto(id)
 );
+
+CREATE TABLE tabelaPromocao(
+       id                    INT NOT NULL,
+       nome                  VARCHAR(40) NOT NULL,
+       descricao             VARCHAR(300),
+       dataInicio            DATE,
+       dataFim               DATE,
+       dataCadastro          DATE,
+       dataUltimaAtualizacao TIMESTAMP NOT NULL
+);
+
+CREATE TABLE promocaoItem (
+      id                    INT NOT NULL,
+      valorPromocao         FLOAT,
+      dataCadastro          DATE,
+      dataUltimaAtualizacao TIMESTAMP NOT NULL,
+      produtoId             INT NOT NULL,
+      promocaoId            INT NOT NULL,
+
+      FOREIGN KEY (promocaoId) REFERENCES tabelaPromocao(id),
+      FOREIGN KEY (produtoId) REFERENCES produto(id)
+);
