@@ -1,12 +1,15 @@
 package br.com.Pedro.ProvaP1LabSiteDinamico.Sistema.model.entity;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 public class PromocaoItem {
     private Integer id;
     private Float valorPromocao;
-    private LocalTime dataCadastro;
-    private LocalTime dataUltimaAtualizacao;
+    private LocalDate dataCadastro;
+    private Timestamp dataUltimaAtualizacao;
     private Produto produto;
     private TabelaPromocao tabelaPromocao;
 
@@ -26,19 +29,21 @@ public class PromocaoItem {
         this.valorPromocao = valorPromocao;
     }
 
-    public LocalTime getDataCadastro() {
+    public LocalDate getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(LocalTime dataCadastro) {
+    public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalTime getDataUltimaAtualizacao() {
-        return dataUltimaAtualizacao;
+    public Timestamp getDataUltimaAtualizacao() {
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+        return timestamp;
     }
 
-    public void setDataUltimaAtualizacao(LocalTime dataUltimaAtualizacao) {
+    public void setDataUltimaAtualizacao(Timestamp dataUltimaAtualizacao) {
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
 
