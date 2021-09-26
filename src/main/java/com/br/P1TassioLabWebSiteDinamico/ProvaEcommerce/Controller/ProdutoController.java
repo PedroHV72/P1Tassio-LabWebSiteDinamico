@@ -32,7 +32,7 @@ public class ProdutoController {
     }
 
     @GetMapping()
-    public List<Produto> buscarProdutosCategoria(
+    public List<Produto> buscarProdutosFiltro(
             @RequestParam(required = false) String nome, Float valorMinimo, Float valorMaximo
     ) {
         return produtoRepository.buscarProdutoPeloFiltro(nome, valorMinimo, valorMaximo);
