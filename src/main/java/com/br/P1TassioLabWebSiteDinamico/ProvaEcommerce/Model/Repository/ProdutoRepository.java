@@ -1,5 +1,6 @@
 package com.br.P1TassioLabWebSiteDinamico.ProvaEcommerce.Model.Repository;
 
+import com.br.P1TassioLabWebSiteDinamico.ProvaEcommerce.Model.Entity.Categoria;
 import com.br.P1TassioLabWebSiteDinamico.ProvaEcommerce.Model.Entity.Produto;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -39,6 +40,18 @@ public class ProdutoRepository {
         );
 
         if(insert == 1) {
+            for(Categoria categoria : produto.getCategoriaList()) {
+                jdbcTemplate.update("INSERT INTO produtoCategoria(id, produtoId, categoriaId) VALUES(?, ?, ?)",
+                        4, produto.getId(), categoria.getId()
+                );
+            }
+
+            List<Categoria> categoriaList = jdbcTemplate.query("SELECT c.* FROM categoria c, produto p, produtoCategoria pc WHERE p.id = pc.produtoId AND c.id = pc.categoriaId AND produtoId = ?",
+                    new CategoriaMapper(), produto.getId()
+            );
+
+            produto.setCategoriaList(categoriaList);
+
             return produto;
         }
 

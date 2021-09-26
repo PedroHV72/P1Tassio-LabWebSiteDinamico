@@ -9,7 +9,15 @@ Accept: application/json
   "fotoUrl": "https://www.madrugaosuplementos.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/c/bcaa-2400-max-titanium-60g-capsulas.png",
   "dataCadastro": "2021-09-24",
   "horaCadastro": "15:06:00",
-  "valorUnitario": "39.90"
+  "valorUnitario": "39.90",
+  "categoriaList": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ]
 }
 
 ###
