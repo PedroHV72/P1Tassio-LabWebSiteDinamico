@@ -16,3 +16,8 @@ Accept: application/json
 
 GET http://localhost:8080/produto/1
 Accept: application/json
+
+###
+
+GET http://localhost:8080/produto?nome=Creatina%20Pura&valorMinimo=30.00&valorMaximo=49.90
+Accept: application/json

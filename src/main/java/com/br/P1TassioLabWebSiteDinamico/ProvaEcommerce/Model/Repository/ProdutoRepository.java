@@ -4,6 +4,7 @@ import com.br.P1TassioLabWebSiteDinamico.ProvaEcommerce.Model.Entity.Produto;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ProdutoRepository {
@@ -42,6 +43,18 @@ public class ProdutoRepository {
         }
 
         throw new Exception("Erro ao inserir o produto");
+    }
+
+    public ArrayList<Produto> buscarProdutoPeloFiltro(String nome, Float valorMinimo, Float valorMaximo) throws Exception {
+        String sql = "SELECT * FROM PRODUTO WHERE nome = ? AND valorUnitario >= ? AND valorUnitario <= ?";
+        ArrayList<Produto> buscar = (ArrayList<Produto>) jdbcTemplate.query(sql, new Object[]{nome, valorMinimo, valorMaximo}, new ProdutoMapper());
+
+        if(buscar.size() > 0) {
+            return (ArrayList<Produto>) jdbcTemplate.query(sql, new Object[]{nome, valorMinimo, valorMaximo}, new ProdutoMapper());
+        }
+
+        throw new Exception("Produto não encontrado");
+
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/produto")
@@ -28,5 +29,11 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public ArrayList<Produto> buscarPorId(@PathVariable Integer id) throws Exception {
         return produtoRepository.buscarPorId(id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    public ArrayList<Produto> buscarProduto(@RequestParam String nome, @RequestParam Float valorMinimo, @RequestParam Float valorMaximo) throws Exception {
+        return  produtoRepository.buscarProdutoPeloFiltro(nome, valorMinimo, valorMaximo);
     }
 }
