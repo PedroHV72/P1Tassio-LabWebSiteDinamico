@@ -31,9 +31,10 @@ public class ProdutoController {
         return produtoRepository.buscarPorId(id);
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    public ArrayList<Produto> buscarProduto(@RequestParam String nome, @RequestParam Float valorMinimo, @RequestParam Float valorMaximo) throws Exception {
-        return  produtoRepository.buscarProdutoPeloFiltro(nome, valorMinimo, valorMaximo);
+    @GetMapping()
+    public List<Produto> buscarProdutosCategoria(
+            @RequestParam(required = false) String nome, Float valorMinimo, Float valorMaximo
+    ) {
+        return produtoRepository.buscarProdutoPeloFiltro(nome, valorMinimo, valorMaximo);
     }
 }

@@ -45,16 +45,29 @@ public class ProdutoRepository {
         throw new Exception("Erro ao inserir o produto");
     }
 
-    public ArrayList<Produto> buscarProdutoPeloFiltro(String nome, Float valorMinimo, Float valorMaximo) throws Exception {
-        String sql = "SELECT * FROM PRODUTO WHERE nome = ? AND valorUnitario >= ? AND valorUnitario <= ?";
-        ArrayList<Produto> buscar = (ArrayList<Produto>) jdbcTemplate.query(sql, new Object[]{nome, valorMinimo, valorMaximo}, new ProdutoMapper());
-
-        if(buscar.size() > 0) {
-            return (ArrayList<Produto>) jdbcTemplate.query(sql, new Object[]{nome, valorMinimo, valorMaximo}, new ProdutoMapper());
+    public List<Produto> buscarProdutoPeloFiltro(String nome, Float valorMinimo, Float valorMaximo){
+        if (nome != null && valorMinimo == null && valorMaximo == null) {
+            return jdbcTemplate.query(
+                    "SELECT * FROM PRODUTO WHERE nome = ?",
+                    new ProdutoMapper(),
+                    nome
+            );
         }
-
-        throw new Exception("Produto não encontrado");
-
+        if (nome == null && valorMinimo != null && valorMaximo != null) {
+            return jdbcTemplate.query(
+                    "SELECT * FROM PRODUTO WHERE valorUnitario >= ? AND valorUnitario <= ?",
+                    new ProdutoMapper(),
+                    valorMinimo,
+                    valorMaximo
+            );
+        }
+        return jdbcTemplate.query(
+                "SELECT * FROM PRODUTO WHERE nome = ? AND valorUnitario >= ? AND valorUnitario <= ?",
+                new ProdutoMapper(),
+                nome,
+                valorMinimo,
+                valorMaximo
+        );
     }
 
 }
