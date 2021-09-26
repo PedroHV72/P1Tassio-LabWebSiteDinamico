@@ -14,3 +14,12 @@ CREATE TABLE produto (
       dataUltimaAtualizacao     TIMESTAMP     NOT NULL,
       valorUnitario             FLOAT(5.2)
 );
+
+CREATE TABLE produtoCategoria (
+      id           INT NOT NULL,
+      produtoId    INT NOT NULL,
+      categoriaId  INT NOT NULL,
+
+      FOREIGN KEY (categoriaId) REFERENCES categoria(id),
+      FOREIGN KEY (produtoId)   REFERENCES produto(id)
+);
