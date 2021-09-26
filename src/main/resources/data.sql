@@ -13,11 +13,17 @@ VALUES (1, 'Cem Por Cento Proteina', 'Totalmente isolado', 'https://www.madrugao
 INSERT INTO produto(id, nome, descricao, fotoUrl, dataCadastro, dataUltimaAtualizacao, valorUnitario)
 VALUES (2, 'Creatina Pura', 'Totalmente pura', 'https://www.madrugaosuplementos.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/c/r/creatina-100g-max-titanium.png', '2021-09-25', CURRENT_TIMESTAMP(), '49.90');
 
+INSERT INTO produto(id, nome, descricao, fotoUrl, dataCadastro, dataUltimaAtualizacao, valorUnitario)
+VALUES (3, 'Hórus', 'O melhor pré treino', 'https://www.madrugaosuplementos.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/r/pre-workout-max-titanium-limao-yuzu.png', '2021-09-22', CURRENT_TIMESTAMP(), '89.90');
+
 INSERT INTO produtoCategoria(id, produtoId, categoriaId)
 VALUES (1, 1, 2);
 
 INSERT INTO produtoCategoria(id, produtoId, categoriaId)
 VALUES (2, 2, 1);
+
+INSERT INTO produtoCategoria(id, produtoId, categoriaId)
+VALUES (3, 3, 2);
 
 INSERT INTO tabelaPromocao(id, nome, descricao, dataInicio, dataFim, dataCadastro, dataUltimaAtualizacao)
 values (1, 'Promoção Malto', 'Para dar energia no treino', '2021-09-25',  '2021-09-27', '2021-09-23', CURRENT_TIMESTAMP());

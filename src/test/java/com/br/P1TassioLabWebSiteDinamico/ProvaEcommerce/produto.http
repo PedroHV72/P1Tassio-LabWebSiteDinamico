@@ -1,3 +1,4 @@
+/// Cadastro de um novo Produto, informando qual(is) categoria(as) ele pertence
 POST http://localhost:8080/produto
 Content-Type: application/json
 Accept: application/json
@@ -22,15 +23,18 @@ Accept: application/json
 
 ###
 
+/// Pesquisa pelo ID de um produto
 GET http://localhost:8080/produto/1
 Accept: application/json
 
 ###
 
+/// Pesquisa pelo nome, valor minimo e valor maximo de um produto
 GET http://localhost:8080/produto?nome=Creatina%20Pura&valorMinimo=30.00&valorMaximo=49.90
 Accept: application/json
 
 ###
 
+/// Pesquisa pelo valor minimo e valor maximo de um produto
 GET http://localhost:8080/produto?valorMinimo=10.00&valorMaximo=299.90
 Accept: application/json
