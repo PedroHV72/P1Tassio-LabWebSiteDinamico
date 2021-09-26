@@ -38,6 +38,15 @@ public class CategoriaRepository {
                     nome
             );
         }
+        if (nome == null && valorMinimo != null && valorMaximo != null) {
+            return jdbcTemplate.query(
+                    "select p.* FROM produto p INNER JOIN produtoCategoria pc ON pc.produtoId = p.id WHERE pc.categoriaId = ? AND p.valorUnitario >= ? AND p.valorUnitario <= ?",
+                    new ProdutoMapper(),
+                    id,
+                    valorMinimo,
+                    valorMaximo
+            );
+        }
         return jdbcTemplate.query(
                 "select p.*, pc.categoriaId FROM produto p INNER JOIN produtoCategoria pc ON pc.produtoId = p.id WHERE pc.categoriaId = ? AND p.nome = ? AND p.valorUnitario >= ? AND p.valorUnitario <= ?",
                 new ProdutoMapper(),

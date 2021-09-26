@@ -13,5 +13,10 @@ Accept: application/json
 
 ###
 
+GET http://localhost:8080/categoria/1/produto?valorMinimo=5.00&valorMaximo=200.00
+Accept: application/json
+
+###
+
 GET http://localhost:8080/categoria/2/produto
 Accept: application/json
