@@ -1,0 +1,18 @@
+POST http://localhost:8080/produto
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 5,
+  "nome": "BCAA",
+  "descricao": "O melhor para reconstrução de fibras",
+  "fotoUrl": "https://www.madrugaosuplementos.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/c/bcaa-2400-max-titanium-60g-capsulas.png",
+  "dataCadastro": "2021-09-24",
+  "horaCadastro": "15:06:00",
+  "valorUnitario": "39.90"
+}
+
+###
+
+GET http://localhost:8080/produto/1
+Accept: application/json
